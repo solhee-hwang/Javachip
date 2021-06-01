@@ -1,4 +1,3 @@
-
 public class Job2 {
 
 	String name;
@@ -36,7 +35,7 @@ public class Job2 {
 
 class Archer2 extends Job2 {
 
-	static String name = "±Ã¼ö";
+	String name = "±Ã¼ö";
 	int hp = 100;
 	int att = 10;
 	int def = 20;
