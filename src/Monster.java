@@ -32,7 +32,7 @@ public class Monster {
 			num = RandomAttack();
 			
 			if(choice == 2){
-				System.out.println(">>플레이어의 방어로 인해 공격이 실패했습니다.")
+				System.out.println(">>플레이어의 방어로 인해 몬스터의 공격이 실패했습니다.");
 			}else{
 				System.out.printf(">>%s가 플레이어를 공격합니다.\n", name);
 				System.out.printf(">>%s가 %d의 데미지를 입혔습니다.\n", name, num);
