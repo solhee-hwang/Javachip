@@ -51,7 +51,6 @@ public class PlayGame2 {
 		player_def = User.get_def();
 		player_exp = User.get_exp();
 		player_level = User.get_level();
-
 		if (place == 1) {
 
 			System.out.println("\n============player choice==============");
@@ -62,7 +61,7 @@ public class PlayGame2 {
 
 		} else if (place == 2) {
 			// 상점입장
-			store s = new store();
+			//store s = new store();
 		} else {
 			System.out.println("1,2에 해당하는 숫자만 입력해주세요.");
 		}
