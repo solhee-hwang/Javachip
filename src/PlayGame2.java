@@ -488,7 +488,7 @@ public class PlayGame2 {
 			}
 
 		}
-		;
+		
 
 	}
 

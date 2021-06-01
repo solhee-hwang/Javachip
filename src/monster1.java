@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Monster {
+public class monster1 {
 	String dun_name1 = "leve1_1";
 	String name = "Lv1_monster";
 	int HP = 50;
