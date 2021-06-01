@@ -160,6 +160,7 @@ public class PlayGame2 {
 				break;
 			}
 			System.out.println("level_2 던전에 입장하셨습니다.");
+			GameStart();
 			break;
 		case 3:
 			if (level < 20) {
@@ -167,6 +168,7 @@ public class PlayGame2 {
 				break;
 			}
 			System.out.println("level_3 던전에 입장하셨습니다.");
+			GameStart();
 		case 4:
 			System.out.println(">>던전에서 나갔습니다.");
 		}
