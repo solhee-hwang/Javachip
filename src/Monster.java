@@ -3,17 +3,18 @@ import java.util.Random;
 public class Monster {
 	String dun_name1 = "leve1_1";
 	String name = "Lv1_monster";
-	int HP = 50;
-	int Striking_power = 10;
+	int dun_level =1;
+	int HP = 70;
+	int Striking_power = 5;
 
 	int skill;
 	int num;
-	int reward = 5;
+	int rewardd = 3;
 
 	public int RandomAttack() {
 		Random ran_attack = new Random();
 		ran_attack.setSeed(System.currentTimeMillis());
-		int power = ran_attack.nextInt(5) * Striking_power;
+		int power =( ran_attack.nextInt(3)+1) * Striking_power;
 		return power;
 	}
 
@@ -26,9 +27,11 @@ public class Monster {
 	public int randomskill(int choice, int attack) {
 		Random Skill = new Random();
 		Skill.setSeed(System.currentTimeMillis());
-		skill = Skill.nextInt(2)+1;
+		skill = Skill.nextInt(4)+1;
 		switch (skill) {
 		case 1:
+		case 2:
+		case 3:
 			num = RandomAttack();
 			
 			if(choice == 2){
@@ -39,7 +42,7 @@ public class Monster {
 			}
 			
 			break;
-		case 2:
+		case 4:
 			if(choice == 1){
 				num = Defence(attack);
 			

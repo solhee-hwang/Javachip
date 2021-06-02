@@ -323,6 +323,8 @@ public class PlayGame2 {
 	static int player_def = 0;
 	static int player_exp = 0;
 	static int player_level = 0;
+	static int hhp=0;
+	static int attt=0;
 	
 	public static void main(String[] args) {
 
@@ -367,10 +369,12 @@ public class PlayGame2 {
 			player_def += User.get_def();
 			player_exp += User.get_exp();
 			player_level += User.get_level();
+			hhp += player_hp;
+			attt+= player_att;
 			
 			if (place == 1) {
 				while(true) {
-					System.out.println("\n============player choice==============");
+					System.out.println("==================player choice====================");
 					System.out.println("(1).level_1 던전|| (2).level_2 던전|| (3).level_3 던전||(4).던전에서 나가기");
 					System.out.print(">>");
 					int player_ch = c.nextInt();
@@ -423,11 +427,31 @@ public class PlayGame2 {
 				}
 			}
 	}
-	public static void GameStart() {
+	public static void GameStart(int player_ch) {
 
 		Scanner in = new Scanner(System.in);
+		
 
 		Monster monster1 = new Monster();
+		switch(player_ch){
+		case 1:
+			break;
+		case 2:
+			monster1.dun_name1 = "level_2";
+			monster1.name = "Lv2_monster";
+			monster1.HP = 200;
+			monster1.Striking_power = 50;
+			monster1.rewardd = 5;
+			monster1.dun_level = 2;
+			break;
+		case 3: 
+			monster1.dun_name1 = "level_3";
+			monster1.name = "boss";
+			monster1.HP = 500;
+			monster1.Striking_power = 150;
+			monster1.rewardd = 7;
+			monster1.dun_level = 3;
+		}
 
 		boolean play = true;
 		int power;
@@ -436,11 +460,11 @@ public class PlayGame2 {
 
 		while (play) {
 
-			System.out.println("============player choice==============");
+			System.out.println("==================player choice====================");
 			System.out.printf("player hp: %d \n", player_hp);
 			System.out.printf("%s hp: %d\n", monster1.name, monster1.HP);
 
-			System.out.println("1.공격하기, 2.방어하기 ");
+			System.out.println("1.공격하기, 2.방어하기 ,3.도망가기");
 			System.out.print(">>");
 			int player_choice = in.nextInt();
 
@@ -461,17 +485,31 @@ public class PlayGame2 {
 				player_hp -= power;
 
 				if (monster1.HP <= 0) {
+					if(monster1.name=="boss"){
+						System.out.println(">>축하합니다. 보스를 처리했습니다!!");
+						play = false;
+						break;
+					}
 					monster1.HP = 0;
 					System.out.printf("%s가 죽었습니다. \n", monster1.name);
 
-					player_exp = monster1.randomreward(10);
-					player_hp = monster1.randomreward(player_hp);
-					player_att = monster1.randomreward(att_skill);
+					
+					player_exp += monster1.randomreward(10);
+					if(player_hp<=0){
+						player_hp = monster1.randomreward(hhp/5);
+					}else{
+						player_hp = monster1.randomreward(player_hp/5);
+					}
 
-					System.out.println("\n===============reward=================");
+					player_att =monster1.randomreward(att_skill/5);
+
+					System.out.println("\n====================reward=======================");
 					System.out.printf("<보상> exp:%d player_hp: %d attack: %d\n", player_exp, player_hp, player_att);
 					player_level = (player_exp / 10);
 					System.out.printf("\n>>level %d 가 되었습니다.\n", player_level);
+					player_hp = hhp * monster1.dun_level+ player_hp;
+					player_att += attt +  player_att/10;
+
 					play = false;
 					break;
 				}
@@ -488,11 +526,16 @@ public class PlayGame2 {
 				System.out.println("\n현재 player의 hp = " + player_hp);
 				System.out.println("현재 monster1의 hp = " + monster1.HP);
 				break;
+			case 3:
+				System.out.println("플레이어가 도망갔습니다.");
+				play = false;
+				break;
 
 			}
 
 			if (player_hp <= 0) {
 				System.out.println("\n몬스터의 공격으로 플레이어가 죽었습니다.");
+				player_hp = hhp;
 				play = false;
 			}
 
@@ -506,7 +549,7 @@ public class PlayGame2 {
 		switch (player_ch) {
 		case 1:
 			System.out.println("level_1 던전에 입장하셨습니다.");
-			GameStart();
+			GameStart(player_ch);
 			break;
 		// 던전플레이 함수 실행
 		case 2:
@@ -516,7 +559,7 @@ public class PlayGame2 {
 				break;
 			}
 			System.out.println("level_2 던전에 입장하셨습니다.");
-			GameStart();
+			GameStart(player_ch);
 			break;
 		case 3:
 			if (level < 20) {
@@ -524,7 +567,7 @@ public class PlayGame2 {
 				break;
 			}
 			System.out.println("level_3 던전에 입장하셨습니다.");
-			GameStart();
+			GameStart(player_ch);
 		case 4:
 			System.out.println(">>던전에서 나갔습니다.");
 		}
