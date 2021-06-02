@@ -1,14 +1,13 @@
 import java.util.Random;
 
-public class Monster {
-	String dun_name1 = "leve_1";
-	String name = "Lv1_monster";
-	int HP = 50;
-	int Striking_power = 10;
-
+public class Monster3{
+	String dun_name1 = "leve_2";
+	String name = "Lv2_monster";
+	int HP = 200;
+	int Striking_power = 30;
 	int skill;
 	int num;
-	int reward = 5;
+	int reward = 20;
 
 	public int RandomAttack() {
 		Random ran_attack = new Random();
@@ -30,15 +29,15 @@ public class Monster {
 		switch (skill) {
 		case 1:
 			num = RandomAttack();
-			System.out.printf(">>%s°¡ (player name)À» °ø°İÇÕ´Ï´Ù.\n", name);
-			System.out.printf(">>%s°¡ %dÀÇ µ¥¹ÌÁö¸¦ ÀÔÇû½À´Ï´Ù.\n", name, num);
+			System.out.printf(">>%sê°€ (player name)ì„ ê³µê²©í•©ë‹ˆë‹¤.\n", name);
+			System.out.printf(">>%sê°€ %dì˜ ë°ë¯¸ì§€ë¥¼ ì…í˜”ìŠµë‹ˆë‹¤.\n", name, num);
 			break;
 		case 2:
 			if(choice == 1){
 				num = Defence(attack);
 			
 			}
-			System.out.printf(">>%s°¡ (player name)ÀÇ °ø°İÀ» ¹æ¾îÇÕ´Ï´Ù.\n", name);
+			System.out.printf(">>%sê°€ (player name)ì˜ ê³µê²©ì„ ë°©ì–´í•©ë‹ˆë‹¤.\n", name);
 			break;
 		}
 		return num;
@@ -46,7 +45,7 @@ public class Monster {
 	public int randomreward(int nm){
 		Random reward = new Random();
 		reward.setSeed(System.currentTimeMillis());
-		int ward = (reward.nextInt(5) + 1) * 1 * nm ;
+		int ward = (reward.nextInt(15) + 1) * 1 * nm ;
 		return ward;
 	}
 

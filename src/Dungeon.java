@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Dun {
+class Dungeon {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("==============Deongeon=================");
@@ -8,12 +8,11 @@ class Dun {
 		Monster monster1 = new Monster();
 		int player_Lv = 1; // 다른 클래스에서 가져올 플레이어의 레벨 우선 초기화 0
 		int player_hp = 200; // 임시의 플레이어의 hp
+		int attack = 20;
 		int power;
+		int exp =0;
 		boolean play = true;
-		if (player_Lv <= 5) {
-			System.out.printf(">>%s 가 등장하였습니다.", monster1.name);
-			System.out.println();
-		}
+		
 		// 우선 여기에 임시로 play 화면 구현 예정rwar5
 		while (play) {
 			System.out.println("============player choice==============");
@@ -26,22 +25,35 @@ class Dun {
 			case 1:
 				// 공격함수 실행 임의로 결정
 				System.out.println(">>공격을 선택하셨습니다.");
-				monster1.HP -= 20;
+				monster1.HP -= attack;
+				System.out.printf("%d만큼 공격을 하였습니다.\n",attack);
+				power = monster1.randomskill(1,attack);
+				player_hp -= power;
+				if(monster1.HP<=0){
+					monster1.HP = 0;
+					System.out.printf("%s가 죽었습니다. \n",monster1.name);
+					int exp_1 =  monster1.randomreward(10);
+					exp += exp_1;
+					player_hp = monster1.randomreward(player_hp);
+					attack = monster1.randomreward(attack);
+					System.out.println("===============reward=================");
+					System.out.printf("<보상> exp:%d player_hp: %d attack: %d\n",exp_1,player_hp,attack);
+					player_Lv = (exp/10);
+					System.out.printf(">>level %d 가 되었습니다.\n",player_Lv);
+					play = false;
+					break;
+				} 
 				System.out.printf("player hp: %d \n", player_hp);
 				System.out.printf("%s hp: %d \n", monster1.name, monster1.HP);
-				System.out.printf(">>%d만큼 공격에 성공하였습니다.", 20);//
-				power = monster1.randomskill();
+				
 				// 직업 클래스 만들어지면 그 클래스에서 hp를 깎는걸로 하기 (monster 클래스에서)
-				player_hp -= power;
+				
 				break;
 			case 2:
 				System.out.println(">>방어를 선택하셨습니다.");
-				// player_hp += power; // 몬스터가 공격한만큼 hp를 채워줄 예정??
+				power = monster1.randomskill(2,attack);
 				System.out.printf("player hp: %d \n", player_hp);
 				System.out.printf("%s hp: %d\n", monster1.name, monster1.HP);
-				power = monster1.randomskill();
-
-				player_hp -= power;
 				break;
 			case 3:
 				System.out.println(">>던전에서 나갔습니다.");
@@ -53,4 +65,5 @@ class Dun {
 			}
 		}
 	}
+
 }
