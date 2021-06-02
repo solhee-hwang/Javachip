@@ -288,23 +288,20 @@ class vs{
 			if(w==0) {
 				get_some += r.nextInt(10) + 5;
 				PlayGame2.player_hp += get_some;
-				System.out.println(get_some + " 만큼 얻으셨습니다!!");
 			}
 			if(w==1) {
 				get_some += r.nextInt(10) + 5; 
 				PlayGame2.player_att += get_some;
-				System.out.println(get_some + " 만큼 얻으셨습니다!!");
 			}
 			if(w==2) {
 				get_some += r.nextInt(10) + 5; 
 				PlayGame2.player_def += get_some;
-				System.out.println(get_some + " 만큼 얻으셨습니다!!");
-			
 			}
+			System.out.println(get_some + " 만큼 얻으셨습니다!!");
 		}else {
 			System.out.println("다음 기회에~!");
 		}
-		System.out.println("현재 상태");
+		System.out.println("\n/////현재 상태/////");
 		System.out.println("name = " + PlayGame2.player_name);
 		System.out.println("hp = " + PlayGame2.player_hp);
 		System.out.println("att = " +PlayGame2.player_att);
