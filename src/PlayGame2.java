@@ -355,6 +355,7 @@ public class PlayGame2 {
 
 		System.out.println("\n캐릭터 선택이 완료되었습니다.\n");
 		System.out.println("어디로 갈지 선택하세요.");
+
 		System.out.println("1:던전 입장, 2:상점(미니게임)");
 		System.out.print(">");
 		int place = c.nextInt();
@@ -420,13 +421,15 @@ public class PlayGame2 {
 		Monster monster1 = new Monster();
 
 		boolean play = true;
+		int power;
 
 		System.out.println("\n몬스터가 나타났습니다.\n");
 
 		while (play) {
 
-			System.out.println("\n플레이어의 선택");
+			System.out.println("============player choice==============");
 			System.out.printf("player hp: %d \n", player_hp);
+			System.out.printf("%s hp: %d\n", monster1.name, monster1.HP);
 
 			System.out.println("1.공격하기, 2.방어하기 ");
 			System.out.print(">");
@@ -440,10 +443,13 @@ public class PlayGame2 {
 				System.out.println("\n공격을 시작합니다.");
 				int att_skill = r.att_skill * player_att;
 				monster1.HP -= att_skill;
+				
 
 				System.out.printf("%d만큼 공격을 하였습니다.\n", att_skill);
 
 				// 몬스터도 공격 실행
+				power = monster1.randomskill(1,att_skill);
+				player_hp -= power;
 
 				if (monster1.HP <= 0) {
 					monster1.HP = 0;
@@ -468,10 +474,7 @@ public class PlayGame2 {
 			case 2:
 
 				System.out.println("\n몬스터의 공격을 방어합니다.");
-
-				// 몬스터 공격 시 플레이어 hp깎이고 다시 회복?
-				player_hp -= monster1.Striking_power;
-				player_hp += monster1.Striking_power;
+				power = monster1.randomskill(2,0);
 
 				System.out.println("\n현재 player의 hp = " + player_hp);
 				System.out.println("현재 monster1의 hp = " + monster1.HP);
@@ -485,7 +488,7 @@ public class PlayGame2 {
 			}
 
 		}
-		;
+		
 
 	}
 
