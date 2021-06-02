@@ -6,7 +6,7 @@ class minigame1{
 	public minigame1(){
 		Random r = new Random();
 		Scanner c = new Scanner(System.in);
-		System.out.print("가위(0), 바위(1) 보(2) 입력 :");
+		System.out.print("0.가위, 1.바위, 2.보 \n>>");
 		System.out.println("");
 		int a = c.nextInt();
 		if (a==0) {
@@ -314,6 +314,7 @@ class vs{
 		return get_some;
 	}
 }
+
 public class PlayGame2 {
 
 	static String player_name;
@@ -332,7 +333,7 @@ public class PlayGame2 {
 
 		System.out.println("1:궁수, 2:마법사, 3:전사, 4:암살자");
 		System.out.println("캐릭터를 선택해주세요.");
-		System.out.print(">");
+		System.out.print(">>");
 		int job = c.nextInt();
 
 		if (job == 1) {
@@ -354,29 +355,43 @@ public class PlayGame2 {
 		System.out.println("level = " + User.get_level());
 
 		System.out.println("\n캐릭터 선택이 완료되었습니다.\n");
-		System.out.println("어디로 갈지 선택하세요.");
+		while(true) {
+			System.out.println("어디로 갈지 선택하세요.");
+			System.out.println("1:던전 입장, 2:상점(미니게임), 3:게임 종료");
+			System.out.print(">>");
+			int place = c.nextInt();
 
-		System.out.println("1:던전 입장, 2:상점(미니게임)");
-		System.out.print(">");
-		int place = c.nextInt();
-
-		player_name = User.get_name();
-		player_hp += User.get_hp();
-		player_att += User.get_att();
-		player_def += User.get_def();
-		player_exp += User.get_exp();
-		player_level += User.get_level();
-		
-		if (place == 1) {
-
-			System.out.println("\n============player choice==============");
-			System.out.println("(1).level_1 던전|| (2).level_2 던전|| (3).level_3 던전||(4).던전에서 나가기");
-			System.out.print(">");
-			int player_ch = c.nextInt();
-			permission(player_level, player_ch);
-
-		} else if (place == 2) {
-			// 상점입장
+			player_name = User.get_name();
+			player_hp += User.get_hp();
+			player_att += User.get_att();
+			player_def += User.get_def();
+			player_exp += User.get_exp();
+			player_level += User.get_level();
+			
+			if (place == 1) {
+				while(true) {
+					System.out.println("\n============player choice==============");
+					System.out.println("(1).level_1 던전|| (2).level_2 던전|| (3).level_3 던전||(4).던전에서 나가기");
+					System.out.print(">>");
+					int player_ch = c.nextInt();
+					permission(player_level, player_ch);
+					if(player_ch==4) 
+						break;
+				}
+			} else if (place == 2) {
+				// 상점입장
+				store();
+				
+			}else if (place == 3) {
+				System.out.println("게임을 종료합니다. 뿅");
+				break;
+			}else {
+				System.out.println("1,2에 해당하는 숫자만 입력해주세요.");
+			}
+		}
+	}
+	public static void store() {
+			Scanner c = new Scanner(System.in);
 			while(true) {
 				System.out.println("$$$_____$$$$$$$_$$$$$$$_$$$_______$$$_$$$$$$$$$$\r\n"
 						+ "$$$____$$$____$$$____$$$_$$$_____$$$__$$$_______\r\n"
@@ -388,14 +403,14 @@ public class PlayGame2 {
 						+ "________________________________________________\n"
 						+ "\n____________Welcome, There is store_____________\n\n"
 						+"________________________________________________\n");
-				System.out.print("어서 오세요 상점입니다~~>_<\n무엇이 필요하신가요?\n -> 체력(0), 공격력(1), 방어력(2), 필요없음(-1)\n입력 :");
+				System.out.print("어서 오세요 상점입니다~~>_<\n무엇이 필요하신가요?\n0.체력, 1.공격력, 2.방어력, -1.아무것도 필요하지 않음(상점 나가기)\n>>");
 				int want = c.nextInt();
 				if(want == -1) {
 					System.out.println("또 오세용~~>_<");
 					System.out.println("\n");
 					break;
 				}
-				System.out.print("게임에서 이기면 드리도록 하죠! 어떤 게임을 하실 건가요?\n -> 가위바위보(0), 빙고(1)\n입력 :");
+				System.out.print("게임에서 이기면 드리도록 하죠! 어떤 게임을 하실 건가요?\n0.가위바위보, 1.빙고\n>>");
 				int game = c.nextInt();
 				if (game == 0) {
 					minigame1 m1 = new minigame1();
@@ -407,13 +422,7 @@ public class PlayGame2 {
 					System.out.println("게임은 두가지입니다~ 0 또는 1을 입력하세요~!");
 				}
 			}
-			
-		} else {
-			System.out.println("1,2에 해당하는 숫자만 입력해주세요.");
-		}
-
 	}
-
 	public static void GameStart() {
 
 		Scanner in = new Scanner(System.in);
@@ -432,7 +441,7 @@ public class PlayGame2 {
 			System.out.printf("%s hp: %d\n", monster1.name, monster1.HP);
 
 			System.out.println("1.공격하기, 2.방어하기 ");
-			System.out.print(">");
+			System.out.print(">>");
 			int player_choice = in.nextInt();
 
 			switch (player_choice) {
@@ -519,8 +528,6 @@ public class PlayGame2 {
 		case 4:
 			System.out.println(">>던전에서 나갔습니다.");
 		}
-		;
-
 	}
 
 }
