@@ -34,6 +34,7 @@ class minigame1{
 		if(com==0) {
 			if(a==0){
 				System.out.println("비겼습니다.");
+				result = 0;
 			}
 			if(a==1) {	
 				System.out.println("!! YOU WIN!!");
@@ -41,15 +42,18 @@ class minigame1{
 			}
 			if(a==2) {	
 				System.out.println("You lose...");
+				result = -1;
 			}
 		}
 		//컴퓨터가 바위일 때
 		if(com==1) {
 			if(a==0){
 				System.out.println("You lose...");
+				result = -1;
 			}
 			if(a==1) {	
 				System.out.println("비겼습니다.");
+				result = 0;
 			}
 			if(a==2) {	
 				System.out.println("!! YOU WIN!!");
@@ -64,9 +68,11 @@ class minigame1{
 			}
 			if(a==1) {	
 				System.out.println("You lose...");
+				result = -1;
 			}
 			if(a==2) {	
 				System.out.println("비겼습니다.");
+				result = 0;
 			}
 		}
 	}
