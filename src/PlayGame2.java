@@ -6,34 +6,34 @@ class minigame1{
 	public minigame1(){
 		Random r = new Random();
 		Scanner c = new Scanner(System.in);
-		System.out.print("0.°¡À§, 1.¹ÙÀ§, 2.º¸ \n>>");
+		System.out.print("0.ê°€ìœ„, 1.ë°”ìœ„, 2.ë³´ \n>>");
 		System.out.println("");
 		int a = c.nextInt();
 		if (a==0) {
-			System.out.println("Player : °¡À§");
+			System.out.println("Player : ê°€ìœ„");
 			}
 		if (a==1) {
-			System.out.println("Player : ¹ÙÀ§");
+			System.out.println("Player : ë°”ìœ„");
 		}
 		if (a==2) {
-			System.out.println("Player : º¸");
+			System.out.println("Player : ë³´");
 		}
 		int com = r.nextInt(3);
 		if(com==0){
-			System.out.println("ÄÄÇ»ÅÍ : °¡À§");
+			System.out.println("ì»´í“¨í„° : ê°€ìœ„");
 		}
 		if(com==1){
-			System.out.println("ÄÄÇ»ÅÍ : ¹ÙÀ§");
+			System.out.println("ì»´í“¨í„° : ë°”ìœ„");
 		}
 		if(com==2){
-			System.out.println("ÄÄÇ»ÅÍ : º¸");
+			System.out.println("ì»´í“¨í„° : ë³´");
 		}
 		System.out.println("");
 		
-		//ÄÄÇ»ÅÍ°¡ °¡À§ÀÏ ¶§
+		//ì»´í“¨í„°ê°€ ê°€ìœ„ì¼ ë•Œ
 		if(com==0) {
 			if(a==0){
-				System.out.println("ºñ°å½À´Ï´Ù.");
+				System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 			}
 			if(a==1) {	
 				System.out.println("!! YOU WIN!!");
@@ -43,20 +43,20 @@ class minigame1{
 				System.out.println("You lose...");
 			}
 		}
-		//ÄÄÇ»ÅÍ°¡ ¹ÙÀ§ÀÏ ¶§
+		//ì»´í“¨í„°ê°€ ë°”ìœ„ì¼ ë•Œ
 		if(com==1) {
 			if(a==0){
 				System.out.println("You lose...");
 			}
 			if(a==1) {	
-				System.out.println("ºñ°å½À´Ï´Ù.");
+				System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 			}
 			if(a==2) {	
 				System.out.println("!! YOU WIN!!");
 				result = 1;
 			}			
 		}
-			//ÄÄÇ»ÅÍ°¡ º¸ ÀÏ¶§
+			//ì»´í“¨í„°ê°€ ë³´ ì¼ë•Œ
 		if(com==2) {
 			if(a==0){
 				System.out.println("!! YOU WIN!!");
@@ -66,23 +66,23 @@ class minigame1{
 				System.out.println("You lose...");
 			}
 			if(a==2) {	
-				System.out.println("ºñ°å½À´Ï´Ù.");
+				System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 			}
 		}
 	}
 }
 class minigame2{
-	static int vs = 0; //´ë°á °á°ú
-	private int Bingo_board[] = new int[25];  // ºù°íº¸µå ¹è¿­ ¼±¾ğ
+	static int vs = 0; //ëŒ€ê²° ê²°ê³¼
+	private int Bingo_board[] = new int[25];  // ë¹™ê³ ë³´ë“œ ë°°ì—´ ì„ ì–¸
 	private int com_board[] = new int[25]; 
 	public minigame2(){
 		Random r = new Random();
 		play();
 	}
-	private int HowManyBingos(int array[]) { // ÇöÀç ºù°íÀÇ ¼ö¸¦ Ä«¿îÆ®ÇÏ´Â ¸Ş¼Òµå 
+	private int HowManyBingos(int array[]) { // í˜„ì¬ ë¹™ê³ ì˜ ìˆ˜ë¥¼ ì¹´ìš´íŠ¸í•˜ëŠ” ë©”ì†Œë“œ 
 	    int totalBingo = 0;
 	    
-	    // °¡·Î ¹æÇâ ºù°íÀÇ °³¼ö¸¦ Ä«¿îÆ®
+	    // ê°€ë¡œ ë°©í–¥ ë¹™ê³ ì˜ ê°œìˆ˜ë¥¼ ì¹´ìš´íŠ¸
 	    for(int i = 0; i < 5; i++) {
 	    	int cnt = 0;
 	    	for(int j = 0 + 5*i; j < 5*(i+1); j++) {
@@ -93,32 +93,32 @@ class minigame2{
 		        totalBingo++;
 	    }
 	   
-	    // ¼¼·Î ¹æÇâ ºù°íÀÇ °³¼ö¸¦ Ä«¿îÆ® 
+	    // ì„¸ë¡œ ë°©í–¥ ë¹™ê³ ì˜ ê°œìˆ˜ë¥¼ ì¹´ìš´íŠ¸ 
 	    for (int m = 0; m < 5; m++) { 
-	      // ÇÑ ¿­¿¡¼­ 0ÀÇ °¹¼ö ¼¼±â
+	      // í•œ ì—´ì—ì„œ 0ì˜ ê°¯ìˆ˜ ì„¸ê¸°
 	      int cnt = 0;
 	      for (int i = m; i <= m + 20; i += 5)
 	        if (array[i] == 0)
-	          cnt++; // ºù°í Á¶°ÇÀÌ¸é ºù°í ¼ö Áõ°¡ 
+	          cnt++; // ë¹™ê³  ì¡°ê±´ì´ë©´ ë¹™ê³  ìˆ˜ ì¦ê°€ 
 	      if (cnt >= 5)
 	        totalBingo++;
 	    }
 
-	    // ½½·¡½Ã ¹æÇâ ºù°í Ä«¿îÆ® 
+	    // ìŠ¬ë˜ì‹œ ë°©í–¥ ë¹™ê³  ì¹´ìš´íŠ¸ 
 	    int cnt = 0;
 	    for (int i = 0; i <= 24; i += 6)
 	      if (array[i] == 0)
 	        cnt++;
-	    // ºù°í Á¶°ÇÀÌ¸é ºù°í ¼ö Áõ°¡
+	    // ë¹™ê³  ì¡°ê±´ì´ë©´ ë¹™ê³  ìˆ˜ ì¦ê°€
 	    if (cnt >= 5)
 	        totalBingo++;
 	    
 	    cnt = 0;
-	    // ¿ª½½·¡½Ã ¹æÇâ Ä«¿îÆ®
+	    // ì—­ìŠ¬ë˜ì‹œ ë°©í–¥ ì¹´ìš´íŠ¸
 	    for (int i = 4; i <= 20; i += 4)
 	      if (array[i] == 0)
 	        cnt++;
-	    // ºù°í Á¶°ÇÀÌ¸é ºù°í ¼ö Áõ°¡ 
+	    // ë¹™ê³  ì¡°ê±´ì´ë©´ ë¹™ê³  ìˆ˜ ì¦ê°€ 
 	    if (cnt >= 5)
 	      totalBingo++;
 	  
@@ -126,10 +126,10 @@ class minigame2{
 	  }
 
 	
-	  // ÇöÀç ºù°í º¸µå¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå 
+	  // í˜„ì¬ ë¹™ê³  ë³´ë“œë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ 
 	  private void display() {
-	    // ºù°íÆÇ Ãâ·ÂÇÏ±â
-		System.out.println("ÇöÀç ºù°í ¼ö: " + HowManyBingos(Bingo_board));
+	    // ë¹™ê³ íŒ ì¶œë ¥í•˜ê¸°
+		System.out.println("í˜„ì¬ ë¹™ê³  ìˆ˜: " + HowManyBingos(Bingo_board));
 	    System.out.println("-------------------------");
 	  
 	    for (int i = 0; i < 25; i++) {
@@ -139,16 +139,16 @@ class minigame2{
 	      System.out.format("%02d | ", Bingo_board[i]);
 
 	      if((i + 1) % 5 == 0) { 
-	        // 5°³ Ãâ·Â ÈÄ ÁÙ ¹Ù²Ù±â
+	        // 5ê°œ ì¶œë ¥ í›„ ì¤„ ë°”ê¾¸ê¸°
 	        System.out.println("");
 	        System.out.println("-------------------------");
 	      }
 	    }
-	    System.out.println("Áö¿ï ¼ıÀÚ¸¦ ¼±ÅÃÇÏ¼¼¿ä. (°ÔÀÓÁ¾·á´Â 99¸¦ ÀÔ·ÂÇÏ»õ¿ä.)");
+	    System.out.println("ì§€ìš¸ ìˆ«ìë¥¼ ì„ íƒí•˜ì„¸ìš”. (ê²Œì„ì¢…ë£ŒëŠ” 99ë¥¼ ì…ë ¥í•˜ìƒˆìš”.)");
 	  }
-	  private void display_com() { //test¿ë
-		    // ºù°íÆÇ Ãâ·ÂÇÏ±â
-			System.out.println("ÇöÀç ºù°í ¼ö: " + HowManyBingos(com_board));
+	  private void display_com() { //testìš©
+		    // ë¹™ê³ íŒ ì¶œë ¥í•˜ê¸°
+			System.out.println("í˜„ì¬ ë¹™ê³  ìˆ˜: " + HowManyBingos(com_board));
 		    System.out.println("-------------------------");
 		  
 		    for (int i = 0; i < 25; i++) {
@@ -158,14 +158,14 @@ class minigame2{
 		      System.out.format("%02d | ", com_board[i]);
 
 		      if((i + 1) % 5 == 0) { 
-		        // 5°³ Ãâ·Â ÈÄ ÁÙ ¹Ù²Ù±â
+		        // 5ê°œ ì¶œë ¥ í›„ ì¤„ ë°”ê¾¸ê¸°
 		        System.out.println("");
 		        System.out.println("-------------------------");
 		      }
 		    }
 		  }
 	  public void shake(int array[]) {
-		  Random rd = new Random(); // ·£´ı °´Ã¼ ¼±¾ğ ¹× ÃÊ±âÈ­
+		  Random rd = new Random(); // ëœë¤ ê°ì²´ ì„ ì–¸ ë° ì´ˆê¸°í™”
 		  for (int i = 0; i < 50; i++) {
 		      int pick1 = rd.nextInt(25);
 		      int pick2 = rd.nextInt(25);
@@ -177,7 +177,7 @@ class minigame2{
 		    }
 	  }
 	  public void new_board() {
-		    // ¹è¿­¿¡ ¼ö Ã¤¿ì±â
+		    // ë°°ì—´ì— ìˆ˜ ì±„ìš°ê¸°
 		    for (int i = 0; i < 25; i++) {
 		    	Bingo_board[i] = i + 1;
 		    	com_board[i] = i + 1;
@@ -185,34 +185,34 @@ class minigame2{
 		    shake(Bingo_board);
 		    shake(com_board);
 	  }
-	  // ºù°í °ÔÀÓ ÇÃ·¹ÀÌ ¿¡ÀÎ ¸Ş¼Òµå
+	  // ë¹™ê³  ê²Œì„ í”Œë ˆì´ ì—ì¸ ë©”ì†Œë“œ
 	  public void play() {
 
 	    new_board();
-	    Scanner in = new Scanner(System.in); // ÀÔ·Â °´Ã¼ ¼±¾ğ ¹× ÃÊ±âÈ­
+	    Scanner in = new Scanner(System.in); // ì…ë ¥ ê°ì²´ ì„ ì–¸ ë° ì´ˆê¸°í™”
 	    Random r = new Random();
-	    // °ÔÀÓ ÇÃ·¹ÀÌ ¹İº¹
-	    int cnt = 0; //ÀÌÀü ±â·Ï ¼ö Ä«¿îÆ®
+	    // ê²Œì„ í”Œë ˆì´ ë°˜ë³µ
+	    int cnt = 0; //ì´ì „ ê¸°ë¡ ìˆ˜ ì¹´ìš´íŠ¸
 	    int cs[] = new int[49];
 	    while(true) {
 	    	if (HowManyBingos(Bingo_board) >= 3 && HowManyBingos(com_board)>=HowManyBingos(com_board)) {
-	    		System.out.println("ÇÃ·¹ÀÌ¾î°¡ ¿ì½ÂÇÏ¿´½À´Ï´Ù");
+	    		System.out.println("í”Œë ˆì´ì–´ê°€ ìš°ìŠ¹í•˜ì˜€ìŠµë‹ˆë‹¤");
 	    		vs = 1;
 	    		break;
 	    	}else if (HowManyBingos(com_board)>=3&& HowManyBingos(com_board) >= HowManyBingos(com_board)) {
-	    		System.out.println("ÄÄÇ»ÅÍ°¡ ¿ì½ÂÇÏ¿´½À´Ï´Ù");
+	    		System.out.println("ì»´í“¨í„°ê°€ ìš°ìŠ¹í•˜ì˜€ìŠµë‹ˆë‹¤");
 	    		vs = -1;
 	    		break;
 	    	}
-	    	display();  // ºù°íÆÇ Ãâ·Â
-	    	//display_com(); //ÄÄÇ»ÅÍ ºù°íÆÇ
+	    	display();  // ë¹™ê³ íŒ ì¶œë ¥
+	    	//display_com(); //ì»´í“¨í„° ë¹™ê³ íŒ
 	    	int c = in.nextInt();
 	    	if (c == 99) {
-	    		System.out.println("°ÔÀÓÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
+	    		System.out.println("ê²Œì„ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 	    		break;
 	    	}
 	    	int result = 0;
-	    	while(true) { //ÀÌÀü°ú °ãÄ¡¸é Ã³¸®
+	    	while(true) { //ì´ì „ê³¼ ê²¹ì¹˜ë©´ ì²˜ë¦¬
 	    		result = 0;
 	    		for(int i = 0; i < cs.length; i++)
 	            	if(cs[i]==c)
@@ -220,11 +220,11 @@ class minigame2{
 	    		if(result == 0)
 	    			break;
 	    		if(result == 1) {
-	    			System.out.println("ÀÌ¹Ì ÀÔ·ÂÇÑ ¼ıÀÚÀÔ´Ï´Ù");
+	    			System.out.println("ì´ë¯¸ ì…ë ¥í•œ ìˆ«ìì…ë‹ˆë‹¤");
 	    		}
 	    		c = in.nextInt();
 	    	}
-	    	// »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¼ö°¡ Bingo_board ¹è¿­ÀÇ ¸î ¹øÂ°¿¡ ÀÖ´ÂÁö °Ë»ö
+	    	// ì‚¬ìš©ìê°€ ì…ë ¥í•œ ìˆ˜ê°€ Bingo_board ë°°ì—´ì˜ ëª‡ ë²ˆì§¸ì— ìˆëŠ”ì§€ ê²€ìƒ‰
 	    	int find = -1;
 	    	int f = -1;
 	    	for (int i = 0; i < Bingo_board.length; i++) {
@@ -235,19 +235,19 @@ class minigame2{
 	    			f = i;
 	    		}
 	    	}
-	    	// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ¼ıÀÚ¸¦ °¡Áö°í ÀÖ´Â Bingo_board ¹è¿­ÀÇ Ä­À» 0À¸·Î º¯°æ
+	    	// ì‚¬ìš©ìê°€ ì„ íƒí•œ ìˆ«ìë¥¼ ê°€ì§€ê³  ìˆëŠ” Bingo_board ë°°ì—´ì˜ ì¹¸ì„ 0ìœ¼ë¡œ ë³€ê²½
 	    	Bingo_board[find] = 0;
 	    	com_board[f] = 0;
-	    	//»ç¿ëÀÚ ±â·Ï ÀúÀå
+	    	//ì‚¬ìš©ì ê¸°ë¡ ì €ì¥
 	    	cs[cnt] = c;
 	    	cnt++;
-	    	//ÄÄÇ»ÅÍ Â÷·Ê
+	    	//ì»´í“¨í„° ì°¨ë¡€
 	    	find = -1;
 	    	f = -1;
 	    	int com_pick = 0;
-	    	while(true) { //ÀÌÀü°ú °ãÄ¡¸é Ã³¸®
+	    	while(true) { //ì´ì „ê³¼ ê²¹ì¹˜ë©´ ì²˜ë¦¬
 	    		result = 0;
-	    		com_pick = r.nextInt(25) + 1; //ÄÄÇ»ÅÍ pick
+	    		com_pick = r.nextInt(25) + 1; //ì»´í“¨í„° pick
 	    		if(c==com_pick) {
 	    			result = 1;
 	    		}
@@ -257,9 +257,9 @@ class minigame2{
 	    		if(result == 0)
 	    			break;
 	    	}
-	    	cs[cnt] = com_pick; //±â·Ï ÀúÀå
-	    	cnt++; //±â·Ï ¼ö Ä«¿îÆ®
-	    	//¹è¿­¿¡¼­ °Ë»ö
+	    	cs[cnt] = com_pick; //ê¸°ë¡ ì €ì¥
+	    	cnt++; //ê¸°ë¡ ìˆ˜ ì¹´ìš´íŠ¸
+	    	//ë°°ì—´ì—ì„œ ê²€ìƒ‰
 	    	for (int i = 0; i < 25; i++) {
 	    		if (Bingo_board[i] == com_pick) {
 	    			find = i;
@@ -268,23 +268,23 @@ class minigame2{
 	    			f = i;
 	    		}
 	    	}
-	    	//ÄÄÇ»ÅÍ pick ¼³¸í
-	    	System.out.println("ÄÄÇ»ÅÍ´Â ["+ com_pick+"]À» °ñ¶ú½À´Ï´Ù!");
-	    	// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ¼ıÀÚ¸¦ °¡Áö°í ÀÖ´Â com_board ¹è¿­ÀÇ Ä­À» 0À¸·Î º¯°æ
+	    	//ì»´í“¨í„° pick ì„¤ëª…
+	    	System.out.println("ì»´í“¨í„°ëŠ” ["+ com_pick+"]ì„ ê³¨ëìŠµë‹ˆë‹¤!");
+	    	// ì‚¬ìš©ìê°€ ì„ íƒí•œ ìˆ«ìë¥¼ ê°€ì§€ê³  ìˆëŠ” com_board ë°°ì—´ì˜ ì¹¸ì„ 0ìœ¼ë¡œ ë³€ê²½
 	    	Bingo_board[find] = 0;
 	    	com_board[f] = 0;
 	    }
 	  }
 }
 class vs{
-	static int get_some = 0;
+	private static int get_some = 0;
 	public vs(int w, int result, int type){
 		Random r = new Random();
 		if(type == 2) {
 			get_some += 15;
 		}
 		if(result > 0) {
-			System.out.println("ÃàÇÏÇÕ´Ï´Ù~!");
+			System.out.println("ì¶•í•˜í•©ë‹ˆë‹¤~!");
 			if(w==0) {
 				get_some += r.nextInt(10) + 5;
 				PlayGame2.player_hp += get_some;
@@ -297,11 +297,11 @@ class vs{
 				get_some += r.nextInt(10) + 5; 
 				PlayGame2.player_def += get_some;
 			}
-			System.out.println(get_some + " ¸¸Å­ ¾òÀ¸¼Ì½À´Ï´Ù!!");
+			System.out.println(get_some + " ë§Œí¼ ì–»ìœ¼ì…¨ìŠµë‹ˆë‹¤!!");
 		}else {
-			System.out.println("´ÙÀ½ ±âÈ¸¿¡~!");
+			System.out.println("ë‹¤ìŒ ê¸°íšŒì—~!");
 		}
-		System.out.println("\n/////ÇöÀç »óÅÂ/////");
+		System.out.println("\n/////í˜„ì¬ ìƒíƒœ/////");
 		System.out.println("name = " + PlayGame2.player_name);
 		System.out.println("hp = " + PlayGame2.player_hp);
 		System.out.println("att = " +PlayGame2.player_att);
@@ -331,10 +331,10 @@ public class PlayGame2 {
 		Scanner c = new Scanner(System.in);
 		Job2 User = new Job2();
 
-		System.out.println("\n°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.\n");
+		System.out.println("\nê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤.\n");
 
-		System.out.println("1:±Ã¼ö, 2:¸¶¹ı»ç, 3:Àü»ç, 4:¾Ï»ìÀÚ");
-		System.out.println("Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.");
+		System.out.println("1:ê¶ìˆ˜, 2:ë§ˆë²•ì‚¬, 3:ì „ì‚¬, 4:ì•”ì‚´ì");
+		System.out.println("ìºë¦­í„°ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");
 		System.out.print(">>");
 		int job = c.nextInt();
 
@@ -348,7 +348,7 @@ public class PlayGame2 {
 			User = new Assassin2();
 		}
 
-		System.out.println("\n¼±ÅÃÇÑ Ä³¸¯ÅÍÀÇ Á¤º¸");
+		System.out.println("\nì„ íƒí•œ ìºë¦­í„°ì˜ ì •ë³´");
 		System.out.println("name = " + User.get_name());
 		System.out.println("hp = " + User.get_hp());
 		System.out.println("att = " + User.get_att());
@@ -356,10 +356,10 @@ public class PlayGame2 {
 		System.out.println("exp = " + User.get_exp());
 		System.out.println("level = " + User.get_level());
 
-		System.out.println("\nÄ³¸¯ÅÍ ¼±ÅÃÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.\n");
+		System.out.println("\nìºë¦­í„° ì„ íƒì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 		while(true) {
-			System.out.println("¾îµğ·Î °¥Áö ¼±ÅÃÇÏ¼¼¿ä.");
-			System.out.println("1:´øÀü ÀÔÀå, 2:»óÁ¡(¹Ì´Ï°ÔÀÓ), 3:°ÔÀÓ Á¾·á");
+			System.out.println("ì–´ë””ë¡œ ê°ˆì§€ ì„ íƒí•˜ì„¸ìš”.");
+			System.out.println("1:ë˜ì „ ì…ì¥, 2:ìƒì (ë¯¸ë‹ˆê²Œì„), 3:ê²Œì„ ì¢…ë£Œ");
 			System.out.print(">>");
 			int place = c.nextInt();
 
@@ -375,7 +375,7 @@ public class PlayGame2 {
 			if (place == 1) {
 				while(true) {
 					System.out.println("==================player choice====================");
-					System.out.println("(1).level_1 ´øÀü|| (2).level_2 ´øÀü|| (3).level_3 ´øÀü||(4).´øÀü¿¡¼­ ³ª°¡±â");
+					System.out.println("(1).level_1 ë˜ì „|| (2).level_2 ë˜ì „|| (3).level_3 ë˜ì „||(4).ë˜ì „ì—ì„œ ë‚˜ê°€ê¸°");
 					System.out.print(">>");
 					int player_ch = c.nextInt();
 					permission(player_level, player_ch);
@@ -383,14 +383,14 @@ public class PlayGame2 {
 						break;
 				}
 			} else if (place == 2) {
-				// »óÁ¡ÀÔÀå
+				// ìƒì ì…ì¥
 				store();
 				
 			}else if (place == 3) {
-				System.out.println("°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù. »Ğ");
+				System.out.println("ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ë¿…");
 				break;
 			}else {
-				System.out.println("1,2¿¡ ÇØ´çÇÏ´Â ¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("1,2ì— í•´ë‹¹í•˜ëŠ” ìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			}
 		}
 	}
@@ -407,14 +407,14 @@ public class PlayGame2 {
 						+ "________________________________________________\n"
 						+ "\n____________Welcome, There is store_____________\n\n"
 						+"________________________________________________\n");
-				System.out.print("¾î¼­ ¿À¼¼¿ä »óÁ¡ÀÔ´Ï´Ù~~>_<\n¹«¾ùÀÌ ÇÊ¿äÇÏ½Å°¡¿ä?\n0.Ã¼·Â, 1.°ø°İ·Â, 2.¹æ¾î·Â, -1.¾Æ¹«°Íµµ ÇÊ¿äÇÏÁö ¾ÊÀ½(»óÁ¡ ³ª°¡±â)\n>>");
+				System.out.print("ì–´ì„œ ì˜¤ì„¸ìš” ìƒì ì…ë‹ˆë‹¤~~>_<\në¬´ì—‡ì´ í•„ìš”í•˜ì‹ ê°€ìš”?\n0.ì²´ë ¥, 1.ê³µê²©ë ¥, 2.ë°©ì–´ë ¥, -1.ì•„ë¬´ê²ƒë„ í•„ìš”í•˜ì§€ ì•ŠìŒ(ìƒì  ë‚˜ê°€ê¸°)\n>>");
 				int want = c.nextInt();
 				if(want == -1) {
-					System.out.println("¶Ç ¿À¼¼¿ë~~>_<");
+					System.out.println("ë˜ ì˜¤ì„¸ìš©~~>_<");
 					System.out.println("\n");
 					break;
 				}
-				System.out.print("°ÔÀÓ¿¡¼­ ÀÌ±â¸é µå¸®µµ·Ï ÇÏÁÒ! ¾î¶² °ÔÀÓÀ» ÇÏ½Ç °Ç°¡¿ä?\n0.°¡À§¹ÙÀ§º¸, 1.ºù°í\n>>");
+				System.out.print("ê²Œì„ì—ì„œ ì´ê¸°ë©´ ë“œë¦¬ë„ë¡ í•˜ì£ ! ì–´ë–¤ ê²Œì„ì„ í•˜ì‹¤ ê±´ê°€ìš”?\n0.ê°€ìœ„ë°”ìœ„ë³´, 1.ë¹™ê³ \n>>");
 				int game = c.nextInt();
 				if (game == 0) {
 					minigame1 m1 = new minigame1();
@@ -423,7 +423,7 @@ public class PlayGame2 {
 					minigame2 m2 = new minigame2();
 					vs v = new vs(want, minigame2.vs, 2);
 				}else {
-					System.out.println("°ÔÀÓÀº µÎ°¡ÁöÀÔ´Ï´Ù~ 0 ¶Ç´Â 1À» ÀÔ·ÂÇÏ¼¼¿ä~!");
+					System.out.println("ê²Œì„ì€ ë‘ê°€ì§€ì…ë‹ˆë‹¤~ 0 ë˜ëŠ” 1ì„ ì…ë ¥í•˜ì„¸ìš”~!");
 				}
 			}
 	}
@@ -456,7 +456,7 @@ public class PlayGame2 {
 		boolean play = true;
 		int power;
 
-		System.out.println("\n¸ó½ºÅÍ°¡ ³ªÅ¸³µ½À´Ï´Ù.\n");
+		System.out.println("\nëª¬ìŠ¤í„°ê°€ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤.\n");
 
 		while (play) {
 
@@ -464,7 +464,7 @@ public class PlayGame2 {
 			System.out.printf("player hp: %d \n", player_hp);
 			System.out.printf("%s hp: %d\n", monster1.name, monster1.HP);
 
-			System.out.println("1.°ø°İÇÏ±â, 2.¹æ¾îÇÏ±â ,3.µµ¸Á°¡±â");
+			System.out.println("1.ê³µê²©í•˜ê¸°, 2.ë°©ì–´í•˜ê¸° ,3.ë„ë§ê°€ê¸°");
 			System.out.print(">>");
 			int player_choice = in.nextInt();
 
@@ -473,25 +473,25 @@ public class PlayGame2 {
 
 				Random_Att r = new Random_Att();
 
-				System.out.println("\n°ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù.");
+				System.out.println("\nê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤.");
 				int att_skill = r.att_skill * player_att;
 				monster1.HP -= att_skill;
 				
 
-				System.out.printf("%d¸¸Å­ °ø°İÀ» ÇÏ¿´½À´Ï´Ù.\n", att_skill);
+				System.out.printf("%dë§Œí¼ ê³µê²©ì„ í•˜ì˜€ìŠµë‹ˆë‹¤.\n", att_skill);
 
-				// ¸ó½ºÅÍµµ °ø°İ ½ÇÇà
+				// ëª¬ìŠ¤í„°ë„ ê³µê²© ì‹¤í–‰
 				power = monster1.randomskill(1,att_skill);
 				player_hp -= power;
 
 				if (monster1.HP <= 0) {
 					if(monster1.name=="boss"){
-						System.out.println(">>ÃàÇÏÇÕ´Ï´Ù. º¸½º¸¦ Ã³¸®Çß½À´Ï´Ù!!");
+						System.out.println(">>ì¶•í•˜í•©ë‹ˆë‹¤. ë³´ìŠ¤ë¥¼ ì²˜ë¦¬í–ˆìŠµë‹ˆë‹¤!!");
 						play = false;
 						break;
 					}
 					monster1.HP = 0;
-					System.out.printf("%s°¡ Á×¾ú½À´Ï´Ù. \n", monster1.name);
+					System.out.printf("%sê°€ ì£½ì—ˆìŠµë‹ˆë‹¤. \n", monster1.name);
 
 					
 					player_exp += monster1.randomreward(10);
@@ -504,9 +504,9 @@ public class PlayGame2 {
 					player_att =monster1.randomreward(att_skill/5);
 
 					System.out.println("\n====================reward=======================");
-					System.out.printf("<º¸»ó> exp:%d player_hp: %d attack: %d\n", player_exp, player_hp, player_att);
+					System.out.printf("<ë³´ìƒ> exp:%d player_hp: %d attack: %d\n", player_exp, player_hp, player_att);
 					player_level = (player_exp / 10);
-					System.out.printf("\n>>level %d °¡ µÇ¾ú½À´Ï´Ù.\n", player_level);
+					System.out.printf("\n>>level %d ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.\n", player_level);
 					player_hp = hhp * monster1.dun_level+ player_hp;
 					player_att += attt +  player_att/10;
 
@@ -514,27 +514,27 @@ public class PlayGame2 {
 					break;
 				}
 
-				System.out.println("\nÇöÀç playerÀÇ hp = " + player_hp);
-				System.out.println("ÇöÀç monster1ÀÇ hp = " + monster1.HP);
+				System.out.println("\ní˜„ì¬ playerì˜ hp = " + player_hp);
+				System.out.println("í˜„ì¬ monster1ì˜ hp = " + monster1.HP);
 				break;
 
 			case 2:
 
-				System.out.println("\n¸ó½ºÅÍÀÇ °ø°İÀ» ¹æ¾îÇÕ´Ï´Ù.");
+				System.out.println("\nëª¬ìŠ¤í„°ì˜ ê³µê²©ì„ ë°©ì–´í•©ë‹ˆë‹¤.");
 				power = monster1.randomskill(2,0);
 
-				System.out.println("\nÇöÀç playerÀÇ hp = " + player_hp);
-				System.out.println("ÇöÀç monster1ÀÇ hp = " + monster1.HP);
+				System.out.println("\ní˜„ì¬ playerì˜ hp = " + player_hp);
+				System.out.println("í˜„ì¬ monster1ì˜ hp = " + monster1.HP);
 				break;
 			case 3:
-				System.out.println("ÇÃ·¹ÀÌ¾î°¡ µµ¸Á°¬½À´Ï´Ù.");
+				System.out.println("í”Œë ˆì´ì–´ê°€ ë„ë§ê°”ìŠµë‹ˆë‹¤.");
 				play = false;
 				break;
 
 			}
 
 			if (player_hp <= 0) {
-				System.out.println("\n¸ó½ºÅÍÀÇ °ø°İÀ¸·Î ÇÃ·¹ÀÌ¾î°¡ Á×¾ú½À´Ï´Ù.");
+				System.out.println("\nëª¬ìŠ¤í„°ì˜ ê³µê²©ìœ¼ë¡œ í”Œë ˆì´ì–´ê°€ ì£½ì—ˆìŠµë‹ˆë‹¤.");
 				player_hp = hhp;
 				play = false;
 			}
@@ -548,28 +548,28 @@ public class PlayGame2 {
 
 		switch (player_ch) {
 		case 1:
-			System.out.println("level_1 ´øÀü¿¡ ÀÔÀåÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("level_1 ë˜ì „ì— ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			GameStart(player_ch);
 			break;
-		// ´øÀüÇÃ·¹ÀÌ ÇÔ¼ö ½ÇÇà
+		// ë˜ì „í”Œë ˆì´ í•¨ìˆ˜ ì‹¤í–‰
 		case 2:
 			if (level < 10) {
-				System.out.println("level 10ÀÌ»ó ºÎÅÍ ÀÔÀåÀÌ °¡´ÉÇÕ´Ï´Ù.");
-				// °ÔÀÓ ÇÃ·¹ÀÌ ÇÔ¼ö·Î °¨
+				System.out.println("level 10ì´ìƒ ë¶€í„° ì…ì¥ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
+				// ê²Œì„ í”Œë ˆì´ í•¨ìˆ˜ë¡œ ê°
 				break;
 			}
-			System.out.println("level_2 ´øÀü¿¡ ÀÔÀåÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("level_2 ë˜ì „ì— ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			GameStart(player_ch);
 			break;
 		case 3:
 			if (level < 20) {
-				System.out.println("level 20ÀÌ»óºÎÅÍ ÀÔÀåÀÌ °¡´ÉÇÕ´Ï´Ù.");
+				System.out.println("level 20ì´ìƒë¶€í„° ì…ì¥ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				break;
 			}
-			System.out.println("level_3 ´øÀü¿¡ ÀÔÀåÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("level_3 ë˜ì „ì— ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			GameStart(player_ch);
 		case 4:
-			System.out.println(">>´øÀü¿¡¼­ ³ª°¬½À´Ï´Ù.");
+			System.out.println(">>ë˜ì „ì—ì„œ ë‚˜ê°”ìŠµë‹ˆë‹¤.");
 		}
 	}
 
